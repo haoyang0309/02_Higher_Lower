@@ -1,9 +1,3 @@
-# HL component 9b - End Game Stats
-
-# To Do
-# Set up Game Play list with each round's results
-# Set up average, best and worst scores (see 09b Stats_experiment)
-
 import random
 
 # Functions go here...
