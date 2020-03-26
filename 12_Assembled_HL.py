@@ -1,48 +1,49 @@
-
-
 import random
-keep_going = ""
-while keep_going == "":
-    # Functions go here...
-    def int_check(question, low = None, high = None):
 
-        # sets up error messages
-        if low is not None and high is not None:
-            error = "please enter an integer between {} and {} " \
-                    "(inclusive)".format(low,high)
-        elif low is not None and high is None:
-            error = "please enter an integer that is more than or " \
-                    "equal to {}".format(low)
-        elif low is None and high is not None:
-            error = "please enter an integer that is less than or " \
-                    "equal to {}".format(high)
-        else:
-            error = "please enter an integer"
 
-        while True:
+# Functions go here...
+def int_check(question, low = None, high = None):
 
-            try:
-                response = int(input(question))
+    # sets up error messages
+    if low is not None and high is not None:
+        error = "please enter an integer between {} and {} " \
+                "(inclusive)".format(low,high)
+    elif low is not None and high is None:
+        error = "please enter an integer that is more than or " \
+                "equal to {}".format(low)
+    elif low is None and high is not None:
+        error = "please enter an integer that is less than or " \
+                "equal to {}".format(high)
+    else:
+        error = "please enter an integer"
 
-                # Checks response is not too low
-                if low is not None and response < low:
-                    print(error)
-                    continue
+    while True:
 
-                if high is not None and response > high:
-                    print(error)
-                    continue
+        try:
+            response = int(input(question))
 
-                return response
-
-            except ValueError:
+            # Checks response is not too low
+            if low is not None and response < low:
                 print(error)
                 continue
 
-    # Main Routine goes here
+            if high is not None and response > high:
+                print(error)
+                continue
+
+            return response
+
+        except ValueError:
+            print(error)
+            continue
+
+# **** Main Routine Starts Here ****
+
+keep_going = ""
+while keep_going == "":
 
     # Get user input...
-    lowest = int_check("Low Nunber: ")
+    lowest = int_check("Low Number: ")
     highest = int_check("High Number: ", lowest + 1)
 
     GUESSES_ALLOWED = 4
